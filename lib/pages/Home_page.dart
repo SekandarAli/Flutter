@@ -15,7 +15,7 @@ class Home_page extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sekandar Ali"),
+        title: Text("Sekandar Ali"),
       ),
         body: Center(
           child: Text(
@@ -23,7 +23,7 @@ class Home_page extends StatelessWidget {
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
-              color: Colors.yellow,
+              color: Colors.red,
             ),
             ),
         ),

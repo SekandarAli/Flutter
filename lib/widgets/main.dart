@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/pages/Home_page.dart';
 import 'package:flutter_application_1/pages/Login_page.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main()
@@ -24,17 +25,14 @@ class  MyApp extends StatelessWidget {
   
       // home : home_page(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        fontFamily: GoogleFonts.lato().fontFamily
 
-      ),
+      theme: MyThemes.lightTheme(context),
+
+      darkTheme: MyThemes.darkTheme(context),
 
       debugShowCheckedModeBanner: false,
       
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      
 
        initialRoute: "/",
       routes: {

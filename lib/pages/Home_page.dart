@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
+import 'package:flutter_application_1/widgets/item_widgets.dart';
 
 class Home_page extends StatelessWidget {
   const Home_page({ Key? key }) : super(key: key);
@@ -9,24 +11,22 @@ class Home_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    int days = 30;
-    String name = "Flutter";
-    const pie = 3.14;
-
+   final dummyList = List.generate(20,(index)=>CatalogModel.items[0]);
 
     return Scaffold(
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
-        body: Center(
-          child: Text(
-            "Welcome to the $days of $name segment $pie",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-              color: Colors.purple,
-            ),
-            ),
+        body: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: ListView.builder(
+             itemCount: dummyList.length,
+             itemBuilder: (context,index){
+               return ItemWidgets(
+                 item: dummyList[index],
+               );
+             },
+          ),
         ),
         drawer: MyDrawer() ,
       

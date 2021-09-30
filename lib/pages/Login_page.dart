@@ -64,7 +64,7 @@ class _Login_pageState extends State<Login_page> {
                 "Welcome to Flutter $name",
                   style: TextStyle(
                     fontSize: 30,
-                    color: Colors.red,
+                    color: Colors.purple,
                   ),
                 ),
 
@@ -138,7 +138,7 @@ class _Login_pageState extends State<Login_page> {
                    
                    Material(
                      borderRadius: BorderRadius.circular(onchanged ? 30 : 30),
-                      color: Colors.red,
+                      color: Colors.purple,
                      child: InkWell(
                        onTap: () => moveToHome(context),
                      

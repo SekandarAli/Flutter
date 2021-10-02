@@ -9,7 +9,7 @@ class MyThemes{
         primarySwatch: Colors.purple,
         fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: AppBarTheme(
-         color: Colors.purple,
+         color: MyThemes.creamColor,
          elevation: 0.0,
          iconTheme: IconThemeData(
            color: Colors.black,

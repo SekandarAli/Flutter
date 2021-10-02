@@ -7,7 +7,7 @@ class MyThemes{
 
   static ThemeData lightTheme(BuildContext context)=> ThemeData(
         primarySwatch: Colors.purple,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: AppBarTheme(
          color: Colors.purple,
          elevation: 0.0,
@@ -22,4 +22,7 @@ class MyThemes{
         brightness: Brightness.dark,
     
       );
+
+      static Color creamColor = Color(0xfff5f5f5);
+      static Color bluishColor = Color(0xff403b48);
 }

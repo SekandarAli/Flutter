@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
 import 'package:flutter_application_1/widgets/item_widgets.dart';
@@ -20,18 +21,28 @@ class _Home_pageState extends State<Home_page> {
   @override
   void initState() {
     super.initState();
-    //loadData();
+    loadData();
   }
 
-  // loadData() async{
-  //  var CatalogJson = await rootBundle.loadString("assets/files/catalog.json");
-  //  var JsonDecode = jsonEncode(CatalogModel);
-  // }
+  loadData() async{
+
+   await Future.delayed(Duration(seconds: 3));
+
+   final catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+   final decodedData = jsonDecode(catalogJson);
+   var productData = decodedData["products"];
+
+   CatalogModel.items = List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+
+   setState(() {
+     
+   });
+
+  }
 
   @override
   Widget build(BuildContext context) {
 
-   final dummyList = List.generate(20,(index)=>CatalogModel.items[0]);
 
     return Scaffold(
       appBar: AppBar(
@@ -39,16 +50,19 @@ class _Home_pageState extends State<Home_page> {
       ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),
-          child: ListView.builder(
-             itemCount: dummyList.length,
-             itemBuilder: (context,index){
-               return ItemWidgets(
-                 item: dummyList[index],
-               );
-             },
-          ),
+          child: (CatalogModel.items.length != null) && (CatalogModel.items.isNotEmpty) ? 
+             ListView.builder(
+             itemCount: CatalogModel.items.length,
+             itemBuilder: (context,index) =>ItemWidgets(
+                 item: CatalogModel.items[index],
+               
+             ),
+          )
+          : Center(
+            child: CircularProgressIndicator(),
+          )
         ),
-        drawer: MyDrawer() ,
+        drawer: MyDrawer(),
       
       );
       
